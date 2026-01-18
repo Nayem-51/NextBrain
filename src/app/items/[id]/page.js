@@ -14,7 +14,7 @@ export default function ItemDetail() {
     // Unwrap params if using recent NextJS 15 promise-based params (though useParams hook normally handles synchronous access in older versions or client components appropriately, 
     // in Next 15 `params` prop is a Promise but `useParams` hook is consistent.
     if(id) {
-        fetch(`http://localhost:5000/api/items/${id}`)
+        fetch(`/api/items/${id}`)
         .then(res => {
             if (!res.ok) throw new Error('Not found');
             return res.json();

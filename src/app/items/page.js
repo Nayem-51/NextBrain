@@ -8,7 +8,7 @@ export default function ItemsPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/items')
+    fetch('/api/items')
       .then(res => res.json())
       .then(data => {
         setItems(data);
