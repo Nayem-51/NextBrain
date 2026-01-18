@@ -1,0 +1,178 @@
+@import "tailwindcss";
+
+/* Custom CSS Variables */
+:root {
+  /* Base Colors - Professional Deep Slate Theme */
+  --color-background: #020617; /* Slate 950 */
+  --color-background-secondary: #0f172a; /* Slate 900 */
+  --color-background-tertiary: #1e293b; /* Slate 800 */
+  
+  --color-foreground: #f8fafc; /* Slate 50 */
+  --color-foreground-muted: #94a3b8; /* Slate 400 */
+  --color-foreground-subtle: #64748b; /* Slate 500 */
+  
+  /* Brand Colors - Indigo & Violet (Premium Tech Feel) */
+  --color-primary: #6366f1; /* Indigo 500 */
+  --color-primary-light: #818cf8; /* Indigo 400 */
+  --color-primary-dark: #4f46e5; /* Indigo 600 */
+  
+  --color-accent: #8b5cf6; /* Violet 500 */
+  --color-accent-light: #a78bfa; /* Violet 400 */
+  --color-accent-dark: #7c3aed; /* Violet 600 */
+  
+  /* Semantic Colors */
+  --color-success: #10b981; /* Emerald 500 */
+  --color-warning: #f59e0b; /* Amber 500 */
+  --color-error: #ef4444; /* Red 500 */
+  
+  /* Glass & Card Effects - Refined & Subtle */
+  --glass-bg: rgba(15, 23, 42, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.05); /* Much subtler border */
+  --card: rgba(30, 41, 59, 0.4);
+  --card-hover: rgba(30, 41, 59, 0.7);
+  --card-border: rgba(148, 163, 184, 0.05);
+  
+  /* Shadows - Smoother & deeper */
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+  --shadow-glow: 0 0 40px rgba(99, 102, 241, 0.15); /* Indigo glow */
+  
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========================================
+   GLOBAL STYLES
+   ======================================== */
+
+* {
+  scroll-behavior: smooth;
+  border-color: var(--card-border);
+}
+
+body {
+  /* Richer, deeper gradient background */
+  background: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #020617 60%, #020617 100%);
+  background-attachment: fixed;
+  color: var(--color-foreground);
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================
+   CUSTOM SCROLLBAR
+   ======================================== */
+
+::-webkit-scrollbar {
+  width: 8px; /* Thinner */
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* ========================================
+   GLASSMORPHISM EFFECTS
+   ======================================== */
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.glass-card {
+  background: var(--card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  border-radius: 1rem;
+  transition: all var(--transition-base);
+}
+
+.glass-card:hover {
+  background: var(--card-hover);
+  border-color: rgba(99, 102, 241, 0.3); /* Indigo hint */
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg), 0 0 20px rgba(99, 102, 241, 0.1);
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* ========================================
+   GRADIENT UTILITIES
+   ======================================== */
+
+.text-gradient {
+  background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%); /* Indigo to Purple */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-gradient-primary {
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); /* Indigo to Purple */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ========================================
+   BUTTON STYLES
+   ======================================== */
+
+.btn-primary {
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px; /* Pill shape is more modern */
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  transition: all var(--transition-base);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.5);
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+
+.container-custom {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
